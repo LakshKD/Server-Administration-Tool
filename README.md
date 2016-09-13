@@ -12,7 +12,7 @@ Platform                        -     Linux
  
 Size                          	-    2.02 MB
  
-Developer                   	-    LAKSHYA KUMAR(40363)
+Developer                   	-    LAKSHYA KUMAR
  
 Best Working Environment      	-     RHEL 6.0
                    
