@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>YUM CONFIGURATION</title>
+	</head>
+	<body>
+		<a href=/index.php>Main index</a>
+		<center>&nbsp;&nbsp;&nbsp;&nbsp<img src=p.gif><img src=as.gif><img src=ks.gif><img src=as.gif><img src=g.gif><img src=es.gif>&nbsp;&nbsp;&nbsp;<img src=m.gif><img src=as.gif><img src=ns1.gif><img src=as.gif><img src=g.gif><img src=es.gif><img src=ms.gif><img src=es.gif><img src=ns1.gif><img src=ts.gif><br>
+		YELLOW DOG UPDATOR MODIFIER RHEL 6.0<hr>
+			<h1><b><u>YUM CONFIGURATION</u></b></h1>
+		<form action="" method="post">
+		<table height=40% width=50% bgcolor=#cccccc border=0>
+		<tr height=3% width=40% bgcolor=#9999ff>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Configure the Package Manager</td>
+		<td width=2% bgcolor=#9999ff></td><td width=18% bgcolor=#9999ff></td></tr>
+		<tr height=11% border=1 bgcolor=#cccccc>
+		<td width=20%>
+		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter Name of your YUM Server</td><td width=2%>  &nbsp; :  </td> <td width=3%>&nbsp;<input type="text" name="name"></td></tr>
+		<tr height=11% bgcolor=#cccccc>
+		<td width=20%>
+		  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Enter baseurl of the Packages(Path of the packages)</td><td width=2%>     &nbsp;  :  </td> <td width=3%>&nbsp;<input type="text" name="path"></td></tr>
+		<tr height=10%><th>
+		<input type="submit" name="sub" value="CONFIGURE"></th></tr>
+		</table>				
+		</form>
+		<center>
+		<?php
+			if(isset($_POST['sub']))
+			         {
+					if($_POST['name']==""||$_POST['path']=="")
+					echo "<b><i>PLEASE ENTER THE NAME AND BASEURL COMMAND !!!!</i></b>";
+				 }
+			if(isset($_POST['sub'])&&$_POST['name']!=""&&$_POST['path']!="")
+			{
+				$name=$_POST['name'];
+				$path=$_POST['path'];
+                                $g=`sudo touch add.sh`;
+				$g=`sudo chmod 777 add.sh`;
+				$h=`sudo touch /etc/yum.repos.d/yum.repo`;
+                                $m=`sudo chmod 777 /etc/yum.repos.d/yum.repo`;
+				$g=`echo "echo '
+[Server]
+name=$name
+baseurl=$path
+gpgcheck=0' >> /etc/yum.repos.d/yum.repo" > add.sh`;
+				$g=`sudo bash add.sh`;
+				$g=`sudo rm -rf add.sh`;
+                                echo "<b>YUM&nbsp;&nbsp;&nbsp;CONFIGURED</b>";                 		
+		         }
+		?></center></center><hr><br>
+		</center>
+		<a href=/index.php ><img src=left.gif align=middle>Return to Main index</a>
+	</body>
+</html>

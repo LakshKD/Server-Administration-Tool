@@ -1,0 +1,132 @@
+<html>
+	<head>
+		<title>Copy Or Move File/Folder</title>
+	</head>
+	<body>
+		<a href=/index.php>Main index</a><br>
+		<a href=file.php>Module index</a>
+		<center><img src=f.gif><img src=is.gif><img src=l.gif><img src=es.gif>&nbsp;&nbsp;&nbsp;<img src=m.gif><img src=as.gif><img src=ns1.gif><img src=as.gif><img src=g.gif><img src=es.gif><img src=ms.gif><img src=es.gif><img src=ns1.gif><img src=ts.gif><br>
+		File Management RHEL 6.0 <hr><center>		
+		<h1><b><u>COPY/MOVE EXISTING FILE/FOLDER</u></b></h1>
+		<table border=2><tr><th><img src=copy.gif></th><tr></table><hr>
+		<form action="" method="post">
+		<table height=33% width=50% bgcolor=#cccccc>
+		<tr bgcolor=#9999ff height=4%><td>
+		<b>Copy a existing file/folder</b></td></tr>
+		<tr height=8%><th>
+		File/Folder Name : <input type="text" name="folder"></th></tr>
+		<tr height=8%><th>
+		File/Folder Source (Absolute path):  <input type="text" name="spath"></th></tr>
+		<tr height=8%><th>
+		File/Folder Destination (Absolute path):  <input type="text" name="dpath"></th></tr>
+		<tr height=5%><th>
+		<input type="submit" name="submit" value="Copy file/folder"></th></tr>
+		</table>
+		</form>
+		<form action="" method="post">
+		<table height=33% width=50% bgcolor=#cccccc>
+		<tr bgcolor=#9999ff height=4%><td>
+		<b>Move a existing file/folder</b></td></tr>
+		<tr height=8%><th>
+		File/Folder Name : <input type="text" name="folder1"></th></tr>
+		<tr height=8%><th>
+		File/Folder Source (Absolute path):  <input type="text" name="spath1"></th></tr>
+		<tr height=8%><th>
+		File/Folder Destination (Absolute path):  <input type="text" name="dpath1"></th></tr>
+		<tr height=5%><th>
+		<input type="submit" name="sub" value="Move file/folder"></th></tr>
+		</table>
+		</form>
+		<?php
+			if(isset($_POST['submit']))
+			{
+			if($_POST['folder']=="")
+				echo "<b><i>SORRY !!!! FILE/FOLDER NAME CAN NOT BE BLANK!!!!</i></b>";
+			if($_POST['spath']==""&&$_POST['folder']!="")
+			echo "<b><i>SORRY !!!! FILE/FOLDER SOURCE PATH CAN NOT BE BLANK!!!!</i></b>";
+			if($_POST['dpath']==""&&$_POST['spath']!=""&&$_POST['folder']!="")
+			echo "<b><i>SORRY !!!! FILE/FOLDER DESTINATION PATH CAN NOT BE BLANK!!!!</i></b>";
+			}
+		if(isset($_POST['submit'])&&$_POST['folder']!=""&&$_POST['spath']!=""&&$_POST['dpath']!="")
+	               {
+				$a=$_POST['folder'];
+				$b=$_POST['spath'];
+				$f=$_POST['dpath'];
+				$c=`sudo find $b`;
+				if ($c=="")
+				{	 
+					echo "<b><i>SORRY!!!! SOURCE PATH \"$b\" DOES NOT EXISTS ENTER A VALID PATH!!!!</i></b>";
+				}
+			        else
+		                {
+				$g=`sudo find $f`;
+				if ($g=="")
+				{	 
+					echo "<b><i>SORRY!!!! DESTINATION PATH \"$f\" DOES NOT EXISTS ENTER A VALID PATH!!!!</i></b>";
+				}
+		 	        else
+		                {
+			
+				$d=`sudo find $b/$a`;
+				if($d=="")
+				{
+					echo "<b><i>SORRY !!!! FILE/FOLDER NAME \"$a\" DOES NOT EXISTS IN PATH \"$b\" !!!!</b></i>";
+				}
+			       else
+				{
+				$e=`sudo cp -r $b/$a $f`;	
+				echo "<b><i>FILE/FOLDER \"$a\" IN \"$b\" COPIED IN \"$f\" !!!!</i></b>";
+				 }
+				}
+			      }	
+			   }
+		?>
+	<?php	
+		if(isset($_POST['sub']))
+			{
+			if($_POST['folder1']=="")
+				echo "<b><i>SORRY !!!! FILE/FOLDER NAME CAN NOT BE BLANK!!!!</i></b>";
+			if($_POST['spath1']==""&&$_POST['folder1']!="")
+			echo "<b><i>SORRY !!!! FILE/FOLDER SOURCE PATH CAN NOT BE BLANK!!!!</i></b>";
+			if($_POST['dpath1']==""&&$_POST['spath1']!=""&&$_POST['folder1']!="")
+			echo "<b><i>SORRY !!!! FILE/FOLDER DESTINATION PATH CAN NOT BE BLANK!!!!</i></b>";
+			}
+		if(isset($_POST['sub'])&&$_POST['folder1']!=""&&$_POST['spath1']!=""&&$_POST['dpath1']!="")
+	           {
+				$a=$_POST['folder1'];
+				$b=$_POST['spath1'];
+				$f=$_POST['dpath1'];
+				$c=`sudo find $b`;
+				if ($c=="")
+				{	 
+					echo "<b><i>SORRY!!!! SOURCE PATH \"$b\" DOES NOT EXISTS ENTER A VALID PATH!!!!</i></b>";
+				}
+			        else
+		                {
+				$g=`sudo find $f`;
+				if ($g=="")
+				{	 
+					echo "<b><i>SORRY!!!! DESTINATION PATH \"$f\" DOES NOT EXISTS ENTER A VALID PATH!!!!</i></b>";
+				}
+			       else
+		                {
+			
+				$d=`sudo find $b/$a`;
+				if($d=="")
+				{
+					echo "<b><i>SORRY !!!! FILE/FOLDER NAME \"$a\" DOES NOT EXISTS IN PATH \"$b\" !!!!</b></i>";
+				}
+		        	else	
+				{
+				$e=`sudo mv  $b/$a $f`;	
+				echo "<b><i>FILE/FOLDER \"$a\" IN \"$b\" MOVED IN \"$f\" !!!!</i></b>";
+				 }
+				}
+			      }	
+			   }			
+
+		?>
+				<hr></center></center>
+		<a href=/index.php ><img src=left.gif align=middle>Return to Main index</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=file.php>Return to file management index</a>
+	</body>
+</html>

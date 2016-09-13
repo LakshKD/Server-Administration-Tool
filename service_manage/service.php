@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>Service Management</title>
+	</head>
+	<body>
+		<a href=/index.php>Main index</a>
+		<center><img src=s.gif><img src=e.gif><img src=rc.gif><img src=vc.gif><img src=i.gif><img src=c.gif><img src=e.gif>&nbsp;&nbsp;&nbsp;<img src=m.gif><img src=as.gif><img src=ns1.gif><img src=as.gif><img src=g.gif><img src=es.gif><img src=ms.gif><img src=es.gif><img src=ns1.gif><img src=ts.gif><br>
+		SERVICE Management RHEL 6.0 <hr><br><br>
+		<table border=0 width=100% height=50%>
+		<tr width=100% height=25% align=center valign=middle>
+		<th width=25% bgcolor=white>
+		<a href="telnet.php"><table border=2><tr><th><img src=telnet.jpg></th></tr></table></a><br><a href="telnet.php">Telnet Service Management</a></th>
+		<th width=25% bgcolor=white>
+		<a href="ssh.php"><table border=2><tr><th><img src=ssh.jpg></th></tr></table></a><br><a href="ssh.php">SSH Service Management</a></th>
+		<th width=25% bgcolor=white>
+		<a href="smtp.php"><table border=2><tr><th><img src=sendmail.jpg></th></tr></table></a><br><a href="smtp.php">Sendmail Service Managemment</a></th>
+		<th width=25% bgcolor=white>
+		<a href="domain.php"><table border=2><tr><th><img src=dns.jpg></th></tr></table></a><br><a href="domain.php">DNS Service Management</a></th>
+		</tr>
+		<tr width=100% height=25% align=center valign=middle>
+		<th width=25% bgcolor=white>
+		<a href="ipp.php"><table border=2><tr><th><img src=ipp.jpg></th></tr></table></a><br><a href="ipp.php">IPP Service Management</a></th>
+		<th width=25% bgcolor=white>
+		<a href="ftp.php"><table border=2><tr><th><img src=ftp.jpg></th></tr></table></a><br><a href="ftp.php">FTP Service Management</a></th>
+		<th width=25% bgcolor=white>
+		<a href="dovecot.php"><table border=2><tr><th><img src=dovecot.jpg></th></tr></table></a><br><a href="dovecot.php">Dovecot Service Management</a></th>
+		</tr>
+		</table><br><br><hr></center>
+		<a href=/index.php ><img src=left.gif align=middle>Return to Main index</a>
+				
+	</body>
+</html>	

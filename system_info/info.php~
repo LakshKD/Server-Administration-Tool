@@ -1,0 +1,13 @@
+<html>
+   <head>
+       <title>Team information</title>
+    </head>
+  <body>
+    
+    <H1><center><u>Team Information</u></center></h1>
+       <marquee><h2><b>Its open Source take it, change it ,live the linux in you </b></h2></marquee>
+       <a href="/index.php"><u>Go to the main console</u></a>
+      <center><img src="redhat.jpg"></center> 
+       
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Existing Servers</title>
+	</head>
+	<body>
+		<a href=/index.php>Main index</a>
+		<center><img src=ac.gif><img src=p.gif><img src=ac.gif><img src=c.gif><img src=h.gif><img src=e.gif>&nbsp;&nbsp;&nbsp;<img src=w.gif><img src=es.gif><img src=bs.gif><img src=ss.gif><img src=es.gif><img src=r.gif><img src=v.gif><img src=es.gif><img src=r.gif><br>
+		APACHE Webserver RHEL 6.0<hr>
+			<h1><b><u>EXISTING SERVERS</u></b></h1>
+		<form action="" method="post">
+			<input type="submit" name="sub" value="SHOW EXISTING SERVERS"></center>				
+		</form>
+		<center>
+		<?php
+			if(isset($_POST['sub']))
+			         {
+					$a=`sudo cat /etc/httpd/conf/httpd.conf`;
+					$b=explode("ServerName ",$a);
+		?>
+					<table width=100% border=1>
+					<tr>
+					<td width=10% bgcolor=#9999ff><b>Sno.</b></td>	
+					<td width=20% bgcolor=#9999ff><b>Tag</b></td>		
+					<td width=70% bgcolor=#9999ff><b>Virtual Server name</b></td>	
+					</tr>					
+		<?php
+					for($i=1,$d=1;$i<40;$i++,$d++)
+				   {
+					if($b[$i]!="")
+				   {
+					$c=explode(" ",$b[$i])
+		?>
+					<table width=100% border=0>
+					<tr><td width=10%>
+					<?php echo "$d" ?></td>
+					<td width=20%>
+					<table border=2><tr><td><img src=apache.gif></td></tr></table>
+					</td>
+					<td width=70%>
+					<b><u><?php echo "$c[0]" ?></u></b></td> 
+					</tr>
+					</table>
+			<?php
+					}
+				    }
+				  } 		                        
+		?></center></center>
+		<br><hr>
+		<a href=apache.php ><img src=left.gif align=middle>Return to Apache index</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=/index.php >Return to Main index</a>
+	</body>
+</html>

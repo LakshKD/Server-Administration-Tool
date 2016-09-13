@@ -1,0 +1,16 @@
+
+There are six fields in the file which are explained below.
+In order to schedule a process you have to give commands for your process in the format given below.
+# Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+ 12  19 *  *  * ls
+
+
+#A sample command is given for your reference 
+#52 18 * * * /bin/mkdir  /root/Desktop/laksh
+#The above command will make a folder in the /root/Desktop directory at around 18:52 hours.

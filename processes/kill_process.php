@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title>Kill Processes</title>
+	</head>
+	<body>
+		<a href=/index.php>Main index</a><br>
+		<a href=process.php>Module index</a>
+		<center><img src=p.gif><img src=r.gif><img src=os.gif><img src=cs.gif><img src=es.gif><img src=ss.gif><img src=ss.gif><img src=es.gif><img src=ss.gif><br>
+		Process Configuration RHEL 6.0 <hr><center>		
+		<h1><b><u>KILL A RUNNING PROCESS ON THE SYSTEM</u></b></h1>
+		<table border=2><tr><th><img src=killpro.gif></th><tr></table><br><br>
+		<form action="" method="post">
+		Click to see the running processes :
+		<input type="submit" name="pro" value="Show Information">
+		</form>
+		<hr><form action="" method="post">
+					<i><b><u><h3>DO YOU WANT TO KILL A PROCESS ?? IF YES : </h3></u></b></i>
+					<b>Enter process PID : </b><input type=text name=kill><br><br> 
+					<input type="submit" name="killpro" value="Kill Process"></form>
+		<?php
+		if(isset($_POST['pro']))
+			{
+			 $a=`sudo ps -A`;
+			 $b=explode("
+",$a);
+		?>
+			
+			<table width=100% border=1>
+					<tr>
+					<td width=100% bgcolor=#9999ff><b>Sno. PID|TTY|TIME|CMD</b></td>	
+					</tr>
+					</table>
+			<?php
+			for($i=1,$c=1;$i<200;$i++,$c++)
+			{
+				if($b[$i]!="")
+				{
+		?>
+					<table width=100% border=0>
+					<tr>
+					<td width=3%><?php echo "$c." ?></td>
+					<td width=97%><?php echo "$b[$i]" ?></td>
+					</tr></table>
+			<?php
+					}
+				}
+			}
+				if(isset($_POST['killpro']))
+				{
+					if($_POST['kill']=="")
+					echo "<br><i><b>SORRY !!!! PROCESS ID FIELD CAN NOT BE BLANK !!!!</b></i>";
+				}
+				if(isset($_POST['killpro'])&&$_POST['kill']!="")
+				{
+					$d=$_POST['kill'];
+					$e=`sudo ps -A | grep $d`;
+					if($e=="")
+					echo "<br><b><i>SORRY !!!! PROCESS ID IS NOT VALID !!!!</i></b>";
+					else
+					{
+						$f=`sudo kill -9 $d`;
+						echo "<br><b><i>PROCESS HAVING PROCESS ID \"$d\" KILLED !!!!</i></b>";
+					}
+				}
+			?>		
+				<hr></center></center>
+		<a href=/index.php><img src=left.gif align=middle>Return to Main index</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=process.php>Return to process index</a>
+	</body>
+</html>

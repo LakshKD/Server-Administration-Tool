@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>how to schedule</title>
+	</head>
+	<body>
+			<a href=/index.php>Main index</a>
+		<center>&nbsp;&nbsp;&nbsp;&nbsp<img src=c.gif><img src=r.gif><img src=os.gif><img src=ns1.gif>&nbsp;&nbsp;&nbsp;<img src=p.gif><img src=r.gif><img src=os.gif><img src=cs.gif><img src=es.gif><img src=ss.gif><img src=ss.gif><br>
+		CRON JOB RHEL 6.0<hr>
+			<h1><b><u>CRON INFORMATION</u></b></h1><br>
+		<form action="" method="post">
+			<input type="submit" name="sub" value="HOW TO SCHEDULE"></center>				
+		</form>
+		<center>
+		<?php
+			if(isset($_POST['sub']))
+			{
+				$a=`sudo cat cron`;
+				echo "<b><pre>$a</pre></b>";
+			}
+		?><br><hr></center>
+		<a href=/index.php ><img src=left.gif align=middle>Return to Main index</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href=schedule.php >Return to Cron index</a>
+	</body>
+</html>
+
+
+
+
+
+
+
