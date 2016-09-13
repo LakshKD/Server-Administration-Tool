@@ -23,18 +23,31 @@ This project is a linux administration tool that helps you to administer and mon
 It includes : 
 
 a) Apache Webserver : Add Virtual Server and Managing it.
+
 b) Bind DNS Server : Add Master Zone,Forward Zone,Slave Zone.Create Namealias,Nameserver,Mailserver.
+
 c) Executing Commands Through web(Command Prompt).
+
 d) Disk Management.
+
 e) File Management.
+
 f) Firewal Configuration.
+
 g) Group Management : Add,Delete Groups.
+
 h) Network Configuration : Add Interface,Add Virtual interface.
+
 i) Managing users  : adding, deleting users and changing there passwords.
+
 j) Kill a suspicious user that have logged in from a remote location.
+
 k) viewing connection, ports etc.
+
 l) Viewing running processes.
+
 m) Samba : Create File share,convert existing user to samba user,chaning passwords.
+
 n) Service Management : ipp,dovecot,smtp,ssh etc. management. 
  
 
